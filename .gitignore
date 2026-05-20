@@ -1,0 +1,27 @@
+# Xcode
+.DS_Store
+build/
+*.xcuserstate
+xcuserdata/
+*.xccheckout
+*.xcscmblueprint
+*.xcworkspace
+!.xcworkspace/contents.xcworkspacedata
+
+# XcodeGen
+project.yml
+
+# Derived Data
+DerivedData/
+
+# Build Products
+*.app
+*.dmg
+*.pkg
+
+# Logs
+*.log
+
+# macOS
+*.swp
+*~
