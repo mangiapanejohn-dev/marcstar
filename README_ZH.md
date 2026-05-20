@@ -2,6 +2,8 @@
 
 <p align="center">
   <img src="Resources/icon-128.png" width="128" alt="MarcStar">
+  <br><br>
+  <b style="font-size: 32px;">MarcStar</b>
 </p>
 
 <p align="center">
