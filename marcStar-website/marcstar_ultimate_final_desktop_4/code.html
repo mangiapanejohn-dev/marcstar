@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Zenith Browser - The minimalist personal web browser</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Newsreader:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings:
+            'FILL' 0,
+            'wght' 400,
+            'GRAD' 0,
+            'opsz' 24
+        }
+        
+        .stagger-1 { opacity: 0; animation: fadeUp 0.8s ease-out 0.2s forwards; }
+        .stagger-2 { opacity: 0; animation: fadeUp 0.8s ease-out 0.4s forwards; }
+        .stagger-3 { opacity: 0; animation: fadeUp 0.8s ease-out 0.6s forwards; }
+        .stagger-4 { opacity: 0; animation: fadeUp 0.8s ease-out 0.8s forwards; }
+        .stagger-5 { opacity: 0; animation: fadeUp 0.8s ease-out 1.0s forwards; }
+
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .glass-card {
+            background: rgba(249, 248, 246, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid #E5E4E2;
+        }
+    </style>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "secondary": "#635979",
+                    "on-background": "#1a1c1b",
+                    "background": "#faf9f7",
+                    "on-surface": "#1a1c1b",
+                    "inverse-primary": "#c8c6c3",
+                    "surface-container": "#efeeec",
+                    "carbon": "#1D1D1B",
+                    "surface-container-low": "#f4f3f1",
+                    "canvas": "#F9F8F6",
+                    "on-primary": "#ffffff",
+                    "inverse-on-surface": "#f1f1ef",
+                    "surface": "#F1F0EE",
+                    "surface-dim": "#dadad8",
+                    "on-primary-fixed-variant": "#474744",
+                    "outline": "#777771",
+                    "surface-container-high": "#e9e8e6",
+                    "on-tertiary-container": "#4e3d00",
+                    "on-tertiary": "#ffffff",
+                    "on-secondary": "#ffffff",
+                    "primary-container": "#1d1d1b",
+                    "surface-container-lowest": "#ffffff",
+                    "on-secondary-fixed-variant": "#4b4260",
+                    "surface-bright": "#faf9f7",
+                    "inverse-surface": "#2f3130",
+                    "primary-fixed": "#e5e2de",
+                    "error-container": "#ffdad6",
+                    "secondary-container": "#e4d7fd",
+                    "error": "#ba1a1a",
+                    "tertiary": "#735c00",
+                    "tertiary-fixed": "#ffe088",
+                    "on-primary-container": "#868582",
+                    "surface-tint": "#5f5e5c",
+                    "surface-variant": "#e3e2e0",
+                    "on-tertiary-fixed-variant": "#574500",
+                    "secondary-fixed": "#eaddff",
+                    "primary-fixed-dim": "#c8c6c3",
+                    "primary": "#020302",
+                    "on-secondary-fixed": "#1f1732",
+                    "on-surface-variant": "#464741",
+                    "on-tertiary-fixed": "#241a00",
+                    "on-error-container": "#93000a",
+                    "on-error": "#ffffff",
+                    "on-secondary-container": "#665c7c",
+                    "tertiary-fixed-dim": "#e9c349",
+                    "tertiary-container": "#cba72f",
+                    "surface-container-highest": "#e3e2e0",
+                    "gold-muted": "#E5D1A0",
+                    "lavender-subtle": "#EBE4F5",
+                    "on-primary-fixed": "#1c1c1a",
+                    "outline-variant": "#c7c7bf",
+                    "secondary-fixed-dim": "#cdc1e5"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "gutter": "24px",
+                    "stack-sm": "8px",
+                    "stack-md": "16px",
+                    "margin-mobile": "20px",
+                    "container-max": "1200px",
+                    "unit": "4px",
+                    "stack-lg": "32px",
+                    "section-gap": "80px",
+                    "margin-desktop": "48px"
+            },
+            "fontFamily": {
+                    "headline-md": [
+                            "Newsreader"
+                    ],
+                    "headline-lg": [
+                            "Newsreader"
+                    ],
+                    "body-lg": [
+                            "Inter"
+                    ],
+                    "body-md": [
+                            "Inter"
+                    ],
+                    "body-sm": [
+                            "Inter"
+                    ],
+                    "headline-xl": [
+                            "Newsreader"
+                    ],
+                    "headline-lg-mobile": [
+                            "Newsreader"
+                    ],
+                    "label-md": [
+                            "Inter"
+                    ],
+                    "label-sm": [
+                            "Inter"
+                    ]
+            },
+            "fontSize": {
+                    "headline-md": [
+                            "24px",
+                            {
+                                    "lineHeight": "1.3",
+                                    "fontWeight": "500"
+                            }
+                    ],
+                    "headline-lg": [
+                            "32px",
+                            {
+                                    "lineHeight": "1.2",
+                                    "fontWeight": "500"
+                            }
+                    ],
+                    "body-lg": [
+                            "18px",
+                            {
+                                    "lineHeight": "1.6",
+                                    "fontWeight": "400"
+                            }
+                    ],
+                    "body-md": [
+                            "16px",
+                            {
+                                    "lineHeight": "1.5",
+                                    "fontWeight": "400"
+                            }
+                    ],
+                    "body-sm": [
+                            "14px",
+                            {
+                                    "lineHeight": "1.4",
+                                    "fontWeight": "400"
+                            }
+                    ],
+                    "headline-xl": [
+                            "48px",
+                            {
+                                    "lineHeight": "1.1",
+                                    "letterSpacing": "-0.02em",
+                                    "fontWeight": "500"
+                            }
+                    ],
+                    "headline-lg-mobile": [
+                            "28px",
+                            {
+                                    "lineHeight": "1.2",
+                                    "fontWeight": "500"
+                            }
+                    ],
+                    "label-md": [
+                            "14px",
+                            {
+                                    "lineHeight": "1",
+                                    "letterSpacing": "0.02em",
+                                    "fontWeight": "600"
+                            }
+                    ],
+                    "label-sm": [
+                            "12px",
+                            {
+                                    "lineHeight": "1",
+                                    "fontWeight": "500"
+                            }
+                    ]
+            }
+        },
+        },
+      }
+    </script>
+</head>
+<body class="bg-background text-on-background font-body-md min-h-screen flex flex-col selection:bg-secondary-container selection:text-carbon">
+<!-- Top Navigation -->
+<nav class="bg-canvas dark:bg-carbon border-b border-surface-container-high dark:border-outline docked full-width top-0 sticky z-50">
+<div class="flex justify-between items-center w-full px-margin-desktop py-stack-md max-w-container-max mx-auto">
+<div class="flex items-center gap-stack-md">
+<img alt="Zenith Logo" class="h-8 w-8 object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCbMWqnHlK68LXCQ6MmeKjievLwfWIx0ZWJl9l3All0EcbjUlj101ew1fjskTDTWToUqkuCB_CXKjTN0dW8N2sbZ5bns20jEr6rsjBqsitWQxveUz_S8cVNS085wTddCylCpfzuIL0IhkwvPYxXBUdZgT11ad-7CE9I6FDYzdtxgYdyCSJ3bICpMZ6-tgbGIiivwZFNMF7oj298GPYpfs0eRCbL-PbM0K9PtbCNwOtvKgpVNXVezwTxsVAY7LlnUwQr603pzqMMupCN"/>
+<span class="font-headline-md text-headline-md text-primary dark:text-canvas tracking-tight">Zenith</span>
+</div>
+<div class="hidden md:flex items-center gap-stack-lg">
+<a class="text-primary dark:text-canvas font-semibold border-b-2 border-primary dark:border-canvas pb-1 transition-colors" href="#">Features</a>
+<a class="text-on-surface-variant dark:text-outline-variant hover:text-primary dark:hover:text-canvas hover:bg-surface-container dark:hover:bg-secondary-container/10 transition-all rounded px-2 py-1" href="#">Security</a>
+<a class="text-on-surface-variant dark:text-outline-variant hover:text-primary dark:hover:text-canvas hover:bg-surface-container dark:hover:bg-secondary-container/10 transition-all rounded px-2 py-1" href="#">Community</a>
+<a class="text-on-surface-variant dark:text-outline-variant hover:text-primary dark:hover:text-canvas hover:bg-surface-container dark:hover:bg-secondary-container/10 transition-all rounded px-2 py-1" href="#">Changelog</a>
+</div>
+<div class="flex items-center gap-stack-md">
+<div class="flex items-center gap-2 border border-surface-container-high rounded-full px-3 py-1 bg-surface-container-low mr-4">
+<button class="font-label-md text-label-md text-primary">EN</button>
+<span class="text-outline-variant text-xs">|</span>
+<button class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors">ZH</button>
+</div>
+<a class="hidden lg:flex items-center gap-2 text-on-surface-variant hover:text-primary transition-colors font-label-md text-label-md scale-95 active:scale-90 transition-transform" href="#">
+<span class="material-symbols-outlined" style="font-size: 20px;">code</span>
+                    GitHub
+                </a>
+<a class="bg-carbon text-canvas px-6 py-2 rounded-lg font-label-md text-label-md hover:bg-primary transition-colors scale-95 active:scale-90 transition-transform" href="#">Download</a>
+</div>
+</div>
+</nav>
+<!-- Main Content Canvas -->
+<main class="flex-grow flex flex-col justify-center items-center px-margin-desktop py-section-gap max-w-container-max mx-auto w-full">
+<!-- Hero Section -->
+<div class="w-full max-w-4xl mx-auto text-center mb-section-gap">
+<h1 class="font-headline-xl text-headline-xl text-carbon mb-stack-lg stagger-1 max-w-3xl mx-auto leading-tight">
+                The minimalist personal web browser
+            </h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-stack-lg stagger-2 max-w-2xl mx-auto">
+                Turn any website into a native macOS app. Enjoy a distraction-free, focused browsing experience tailored to your workflow.
+            </p>
+<div class="flex flex-col sm:flex-row justify-center items-center gap-stack-md stagger-3">
+<a class="bg-carbon text-canvas px-8 py-3 rounded-lg font-label-md text-label-md hover:bg-primary transition-colors shadow-sm flex items-center gap-2 w-full sm:w-auto justify-center" href="#">
+<span class="material-symbols-outlined">download</span>
+                    Download for macOS
+                </a>
+<a class="bg-transparent border border-carbon text-carbon px-8 py-3 rounded-lg font-label-md text-label-md hover:bg-surface-container-low transition-colors flex items-center gap-2 w-full sm:w-auto justify-center" href="#">
+<span class="material-symbols-outlined">code</span>
+                    View on GitHub
+                </a>
+</div>
+<p class="font-body-sm text-body-sm text-outline mt-stack-md stagger-4">Requires macOS 12.0 or later. Universal binary.</p>
+</div>
+<!-- Core Principles Bento Grid -->
+<div class="w-full grid grid-cols-1 md:grid-cols-3 gap-gutter stagger-5">
+<!-- Absolute Focus -->
+<div class="glass-card rounded-xl p-stack-lg flex flex-col gap-stack-md hover:-translate-y-1 transition-transform duration-300">
+<div class="w-12 h-12 rounded-full bg-lavender-subtle text-secondary-container flex items-center justify-center mb-stack-sm">
+<span class="material-symbols-outlined text-secondary" style="font-size: 24px; font-variation-settings: 'FILL' 1;">visibility_off</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-carbon">Absolute Focus</h3>
+<p class="font-body-md text-body-md text-on-surface-variant flex-grow">
+                    Strip away tabs, bookmarks bars, and visual noise. Your content takes center stage, allowing for deep, uninterrupted work sessions.
+                </p>
+</div>
+<!-- Native Feel -->
+<div class="glass-card rounded-xl p-stack-lg flex flex-col gap-stack-md hover:-translate-y-1 transition-transform duration-300">
+<div class="w-12 h-12 rounded-full bg-lavender-subtle text-secondary-container flex items-center justify-center mb-stack-sm">
+<span class="material-symbols-outlined text-secondary" style="font-size: 24px; font-variation-settings: 'FILL' 1;">devices</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-carbon">Native Feel</h3>
+<p class="font-body-md text-body-md text-on-surface-variant flex-grow">
+                    Built with Swift and WebKit. It feels completely native to macOS, respecting system behaviors, shortcuts, and performance expectations.
+                </p>
+</div>
+<!-- Open Source -->
+<div class="glass-card rounded-xl p-stack-lg flex flex-col gap-stack-md hover:-translate-y-1 transition-transform duration-300">
+<div class="w-12 h-12 rounded-full bg-lavender-subtle text-secondary-container flex items-center justify-center mb-stack-sm">
+<span class="material-symbols-outlined text-secondary" style="font-size: 24px; font-variation-settings: 'FILL' 1;">terminal</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-carbon">Open Source</h3>
+<p class="font-body-md text-body-md text-on-surface-variant flex-grow">
+                    Fully open source and community-driven. Inspect the code, contribute features, or fork it to build your own custom browsing environment.
+                </p>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-low dark:bg-inverse-surface border-t border-surface-container-high dark:border-outline full-width py-section-gap mt-auto">
+<div class="flex flex-col md:flex-row justify-between items-start w-full px-margin-desktop max-w-container-max mx-auto gap-stack-lg">
+<div class="flex flex-col gap-stack-sm">
+<span class="font-headline-md text-headline-md text-primary dark:text-canvas tracking-tight">Zenith</span>
+<p class="font-body-sm text-body-sm text-on-surface dark:text-inverse-on-surface">© 2024 Zenith Browser. Built for the modern mind.</p>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-3 gap-x-gutter gap-y-stack-md font-body-sm text-body-sm">
+<a class="text-on-surface-variant dark:text-outline-variant hover:text-primary dark:hover:text-canvas underline transition-all opacity-80 hover:opacity-100" href="#">Documentation</a>
+<a class="text-on-surface-variant dark:text-outline-variant hover:text-primary dark:hover:text-canvas underline transition-all opacity-80 hover:opacity-100" href="#">Privacy Policy</a>
+<a class="text-on-surface-variant dark:text-outline-variant hover:text-primary dark:hover:text-canvas underline transition-all opacity-80 hover:opacity-100" href="#">Terms of Service</a>
+<a class="text-on-surface-variant dark:text-outline-variant hover:text-primary dark:hover:text-canvas underline transition-all opacity-80 hover:opacity-100" href="#">Security</a>
+<a class="text-on-surface-variant dark:text-outline-variant hover:text-primary dark:hover:text-canvas underline transition-all opacity-80 hover:opacity-100" href="#">System Status</a>
+<a class="text-on-surface-variant dark:text-outline-variant hover:text-primary dark:hover:text-canvas underline transition-all opacity-80 hover:opacity-100" href="#">Contact Us</a>
+</div>
+</div>
+</footer>
+</body></html>

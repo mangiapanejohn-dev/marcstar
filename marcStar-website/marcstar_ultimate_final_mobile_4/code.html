@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+
+<html class="light" lang="zh-CN"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>MarcStar - 为 macOS 打造的极简工具</title>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Newsreader:opsz,wght@6..72,400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Config injected from system prompt -->
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                            "secondary": "#635979",
+                            "on-background": "#1a1c1b",
+                            "background": "#faf9f7",
+                            "on-surface": "#1a1c1b",
+                            "inverse-primary": "#c8c6c3",
+                            "surface-container": "#efeeec",
+                            "carbon": "#1D1D1B",
+                            "surface-container-low": "#f4f3f1",
+                            "canvas": "#F9F8F6",
+                            "on-primary": "#ffffff",
+                            "inverse-on-surface": "#f1f1ef",
+                            "surface": "#F1F0EE",
+                            "surface-dim": "#dadad8",
+                            "on-primary-fixed-variant": "#474744",
+                            "outline": "#777771",
+                            "surface-container-high": "#e9e8e6",
+                            "on-tertiary-container": "#4e3d00",
+                            "on-tertiary": "#ffffff",
+                            "on-secondary": "#ffffff",
+                            "primary-container": "#1d1d1b",
+                            "surface-container-lowest": "#ffffff",
+                            "on-secondary-fixed-variant": "#4b4260",
+                            "surface-bright": "#faf9f7",
+                            "inverse-surface": "#2f3130",
+                            "primary-fixed": "#e5e2de",
+                            "error-container": "#ffdad6",
+                            "secondary-container": "#e4d7fd",
+                            "error": "#ba1a1a",
+                            "tertiary": "#735c00",
+                            "tertiary-fixed": "#ffe088",
+                            "on-primary-container": "#868582",
+                            "surface-tint": "#5f5e5c",
+                            "surface-variant": "#e3e2e0",
+                            "on-tertiary-fixed-variant": "#574500",
+                            "secondary-fixed": "#eaddff",
+                            "primary-fixed-dim": "#c8c6c3",
+                            "primary": "#020302",
+                            "on-secondary-fixed": "#1f1732",
+                            "on-surface-variant": "#464741",
+                            "on-tertiary-fixed": "#241a00",
+                            "on-error-container": "#93000a",
+                            "on-error": "#ffffff",
+                            "on-secondary-container": "#665c7c",
+                            "tertiary-fixed-dim": "#e9c349",
+                            "tertiary-container": "#cba72f",
+                            "surface-container-highest": "#e3e2e0",
+                            "gold-muted": "#E5D1A0",
+                            "lavender-subtle": "#EBE4F5",
+                            "on-primary-fixed": "#1c1c1a",
+                            "outline-variant": "#c7c7bf",
+                            "secondary-fixed-dim": "#cdc1e5"
+                    },
+                    "borderRadius": {
+                            "DEFAULT": "0.25rem",
+                            "lg": "0.5rem",
+                            "xl": "0.75rem",
+                            "full": "9999px"
+                    },
+                    "spacing": {
+                            "gutter": "24px",
+                            "stack-sm": "8px",
+                            "stack-md": "16px",
+                            "margin-mobile": "20px",
+                            "container-max": "1200px",
+                            "unit": "4px",
+                            "stack-lg": "32px",
+                            "section-gap": "80px",
+                            "margin-desktop": "48px"
+                    },
+                    "fontFamily": {
+                            "headline-md": ["Newsreader", "serif"],
+                            "headline-lg": ["Newsreader", "serif"],
+                            "body-lg": ["Inter", "sans-serif"],
+                            "body-md": ["Inter", "sans-serif"],
+                            "body-sm": ["Inter", "sans-serif"],
+                            "headline-xl": ["Newsreader", "serif"],
+                            "headline-lg-mobile": ["Newsreader", "serif"],
+                            "label-md": ["Inter", "sans-serif"],
+                            "label-sm": ["Inter", "sans-serif"]
+                    },
+                    "fontSize": {
+                            "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "500"}],
+                            "headline-lg": ["32px", {"lineHeight": "1.2", "fontWeight": "500"}],
+                            "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                            "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                            "body-sm": ["14px", {"lineHeight": "1.4", "fontWeight": "400"}],
+                            "headline-xl": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "500"}],
+                            "headline-lg-mobile": ["28px", {"lineHeight": "1.2", "fontWeight": "500"}],
+                            "label-md": ["14px", {"lineHeight": "1", "letterSpacing": "0.02em", "fontWeight": "600"}],
+                            "label-sm": ["12px", {"lineHeight": "1", "fontWeight": "500"}]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: theme('colors.canvas');
+            color: theme('colors.carbon');
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* Staggered Fade-in Animation */
+        .fade-in-up {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .delay-100 { animation-delay: 100ms; }
+        .delay-200 { animation-delay: 200ms; }
+        .delay-300 { animation-delay: 300ms; }
+        .delay-400 { animation-delay: 400ms; }
+        .delay-500 { animation-delay: 500ms; }
+
+        /* Minimal scrollbar for bento grid if needed on tiny screens */
+        ::-webkit-scrollbar {
+            width: 4px;
+            height: 4px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: theme('colors.surface-dim');
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: theme('colors.outline');
+        }
+    </style>
+</head>
+<body class="bg-canvas text-carbon min-h-screen flex flex-col selection:bg-lavender-subtle selection:text-carbon">
+<!-- TopAppBar from JSON -->
+<header class="sticky top-0 w-full z-50 bg-canvas border-b border-surface-dim fade-in-up">
+<div class="flex justify-between items-center h-16 px-gutter max-w-container-max mx-auto">
+<!-- Leading Icon (Language Toggle conceptually) -->
+<button aria-label="Toggle Language" class="text-carbon hover:text-carbon transition-colors duration-200 opacity-80 hover:opacity-100 flex items-center justify-center p-2 rounded-full hover:bg-surface">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">language</span>
+</button>
+<!-- Headline / Brand -->
+<div class="text-headline-md font-headline-md font-semibold text-carbon">
+                Personal Browser
+            </div>
+<!-- Trailing Icon (Menu) -->
+<button aria-label="Open Menu" class="text-carbon hover:text-carbon transition-colors duration-200 opacity-80 hover:opacity-100 flex items-center justify-center p-2 rounded-full hover:bg-surface">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">menu</span>
+</button>
+</div>
+</header>
+<!-- Main Content Area - Mobile Optimized Claude.ai style -->
+<main class="flex-grow flex flex-col items-center justify-center px-margin-mobile py-section-gap w-full max-w-container-max mx-auto">
+<!-- Hero Section -->
+<section class="flex flex-col items-center text-center w-full max-w-lg mx-auto space-y-stack-lg">
+<!-- Large Logo Image -->
+<div class="w-24 h-24 md:w-32 md:h-32 rounded-3xl overflow-hidden shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-surface-dim flex items-center justify-center bg-white fade-in-up delay-100">
+<img alt="MarcStar Logo" class="w-full h-full object-contain p-4" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCbMWqnHlK68LXCQ6MmeKjievLwfWIx0ZWJl9l3All0EcbjUlj101ew1fjskTDTWToUqkuCB_CXKjTN0dW8N2sbZ5bns20jEr6rsjBqsitWQxveUz_S8cVNS085wTddCylCpfzuIL0IhkwvPYxXBUdZgT11ad-7CE9I6FDYzdtxgYdyCSJ3bICpMZ6-tgbGIiivwZFNMF7oj298GPYpfs0eRCbL-PbM0K9PtbCNwOtvKgpVNXVezwTxsVAY7LlnUwQr603pzqMMupCN"/>
+</div>
+<!-- Headline & Subtext -->
+<div class="space-y-stack-sm fade-in-up delay-200">
+<h1 class="text-headline-lg-mobile md:text-headline-xl font-headline-lg-mobile md:font-headline-xl text-carbon">
+                    为 macOS 打造的极简工具
+                </h1>
+<p class="text-body-lg font-body-lg text-on-surface-variant">
+                    极致纯净，回归阅读本质。
+                </p>
+</div>
+<!-- Action Buttons -->
+<div class="flex flex-col w-full gap-stack-sm fade-in-up delay-300">
+<button class="w-full py-4 px-6 bg-carbon text-canvas rounded-lg text-label-md font-label-md hover:opacity-90 transition-opacity flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-[18px]">download</span>
+                    下载 macOS 版
+                </button>
+<button class="w-full py-4 px-6 bg-transparent border border-carbon text-carbon rounded-lg text-label-md font-label-md hover:bg-surface transition-colors flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-[18px]">code</span>
+                    在 GitHub 上查看
+                </button>
+</div>
+</section>
+<!-- Features Bento Grid -->
+<section class="w-full max-w-lg mx-auto mt-section-gap fade-in-up delay-400">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-stack-md">
+<!-- Bento Item 1: 专注写作 -->
+<div class="bg-white border border-surface-dim rounded-xl p-6 flex flex-col items-start gap-stack-md hover:border-outline-variant transition-colors group">
+<div class="w-10 h-10 rounded-full bg-lavender-subtle flex items-center justify-center text-carbon group-hover:bg-secondary-container transition-colors">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">edit_document</span>
+</div>
+<div>
+<h3 class="text-body-md font-body-md font-medium text-carbon mb-1">专注写作</h3>
+<p class="text-body-sm font-body-sm text-on-surface-variant">摒弃一切干扰，提供最沉浸的文字创作环境。</p>
+</div>
+</div>
+<!-- Bento Item 2: 实时同步 -->
+<div class="bg-white border border-surface-dim rounded-xl p-6 flex flex-col items-start gap-stack-md hover:border-outline-variant transition-colors group">
+<div class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-carbon group-hover:bg-surface-dim transition-colors">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">sync</span>
+</div>
+<div>
+<h3 class="text-body-md font-body-md font-medium text-carbon mb-1">实时同步</h3>
+<p class="text-body-sm font-body-sm text-on-surface-variant">iCloud 无缝连接，随时随地接续您的灵感。</p>
+</div>
+</div>
+<!-- Bento Item 3: 极简美学 (Spans full width on mobile) -->
+<div class="bg-surface border border-surface-dim rounded-xl p-6 flex flex-col items-start gap-stack-md md:col-span-2 relative overflow-hidden group">
+<!-- Subtle decorative gradient for "Aesthetics" -->
+<div class="absolute -top-10 -right-10 w-32 h-32 bg-secondary-container rounded-full mix-blend-multiply filter blur-2xl opacity-50 group-hover:opacity-80 transition-opacity"></div>
+<div class="w-10 h-10 rounded-full bg-canvas border border-surface-dim flex items-center justify-center text-carbon z-10">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+</div>
+<div class="z-10">
+<h3 class="text-body-md font-body-md font-medium text-carbon mb-1">极简美学</h3>
+<p class="text-body-sm font-body-sm text-on-surface-variant">原生 macOS 设计语言，与系统完美融合，优雅克制。</p>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer from JSON -->
+<footer class="w-full py-12 bg-surface border-t border-surface-dim fade-in-up delay-500 mt-auto">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-stack-lg px-gutter max-w-container-max mx-auto text-center md:text-left">
+<!-- Brand / Copyright -->
+<div class="flex flex-col gap-stack-sm items-center md:items-start">
+<span class="text-label-md font-label-md font-bold text-carbon">
+                    Personal Browser
+                </span>
+<span class="text-body-sm font-body-sm text-on-surface-variant">
+                    © 2024 Personal Browser. All rights reserved.
+                </span>
+</div>
+<!-- Links -->
+<div class="flex flex-wrap justify-center md:justify-end gap-stack-md">
+<a class="text-label-sm font-label-sm text-on-surface-variant hover:text-carbon underline decoration-1 underline-offset-4 transition-all duration-300 ease-in-out" href="#">Privacy</a>
+<a class="text-label-sm font-label-sm text-on-surface-variant hover:text-carbon underline decoration-1 underline-offset-4 transition-all duration-300 ease-in-out" href="#">Terms</a>
+<a class="text-label-sm font-label-sm text-on-surface-variant hover:text-carbon underline decoration-1 underline-offset-4 transition-all duration-300 ease-in-out" href="#">Github</a>
+<a class="text-label-sm font-label-sm text-on-surface-variant hover:text-carbon underline decoration-1 underline-offset-4 transition-all duration-300 ease-in-out" href="#">Twitter</a>
+</div>
+</div>
+</footer>
+</body></html>

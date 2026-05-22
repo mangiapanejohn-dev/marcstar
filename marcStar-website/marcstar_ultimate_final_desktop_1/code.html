@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+
+<html class="light" lang="zh-CN"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>MarcStar - 社区与文档</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Newsreader:ital,wght@0,400;0,500;1,400&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "secondary": "#635979",
+                      "on-background": "#1a1c1b",
+                      "background": "#faf9f7",
+                      "on-surface": "#1a1c1b",
+                      "inverse-primary": "#c8c6c3",
+                      "surface-container": "#efeeec",
+                      "carbon": "#1D1D1B",
+                      "surface-container-low": "#f4f3f1",
+                      "canvas": "#F9F8F6",
+                      "on-primary": "#ffffff",
+                      "inverse-on-surface": "#f1f1ef",
+                      "surface": "#F1F0EE",
+                      "surface-dim": "#dadad8",
+                      "on-primary-fixed-variant": "#474744",
+                      "outline": "#777771",
+                      "surface-container-high": "#e9e8e6",
+                      "on-tertiary-container": "#4e3d00",
+                      "on-tertiary": "#ffffff",
+                      "on-secondary": "#ffffff",
+                      "primary-container": "#1d1d1b",
+                      "surface-container-lowest": "#ffffff",
+                      "on-secondary-fixed-variant": "#4b4260",
+                      "surface-bright": "#faf9f7",
+                      "inverse-surface": "#2f3130",
+                      "primary-fixed": "#e5e2de",
+                      "error-container": "#ffdad6",
+                      "secondary-container": "#e4d7fd",
+                      "error": "#ba1a1a",
+                      "tertiary": "#735c00",
+                      "tertiary-fixed": "#ffe088",
+                      "on-primary-container": "#868582",
+                      "surface-tint": "#5f5e5c",
+                      "surface-variant": "#e3e2e0",
+                      "on-tertiary-fixed-variant": "#574500",
+                      "secondary-fixed": "#eaddff",
+                      "primary-fixed-dim": "#c8c6c3",
+                      "primary": "#020302",
+                      "on-secondary-fixed": "#1f1732",
+                      "on-surface-variant": "#464741",
+                      "on-tertiary-fixed": "#241a00",
+                      "on-error-container": "#93000a",
+                      "on-error": "#ffffff",
+                      "on-secondary-container": "#665c7c",
+                      "tertiary-fixed-dim": "#e9c349",
+                      "tertiary-container": "#cba72f",
+                      "surface-container-highest": "#e3e2e0",
+                      "gold-muted": "#E5D1A0",
+                      "lavender-subtle": "#EBE4F5",
+                      "on-primary-fixed": "#1c1c1a",
+                      "outline-variant": "#c7c7bf",
+                      "secondary-fixed-dim": "#cdc1e5"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "gutter": "24px",
+                      "stack-sm": "8px",
+                      "stack-md": "16px",
+                      "margin-mobile": "20px",
+                      "container-max": "1200px",
+                      "unit": "4px",
+                      "stack-lg": "32px",
+                      "section-gap": "80px",
+                      "margin-desktop": "48px"
+              },
+              "fontFamily": {
+                      "headline-md": ["Newsreader"],
+                      "headline-lg": ["Newsreader"],
+                      "body-lg": ["Inter"],
+                      "body-md": ["Inter"],
+                      "body-sm": ["Inter"],
+                      "headline-xl": ["Newsreader"],
+                      "headline-lg-mobile": ["Newsreader"],
+                      "label-md": ["Inter"],
+                      "label-sm": ["Inter"]
+              },
+              "fontSize": {
+                      "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "500"}],
+                      "headline-lg": ["32px", {"lineHeight": "1.2", "fontWeight": "500"}],
+                      "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                      "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                      "body-sm": ["14px", {"lineHeight": "1.4", "fontWeight": "400"}],
+                      "headline-xl": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "500"}],
+                      "headline-lg-mobile": ["28px", {"lineHeight": "1.2", "fontWeight": "500"}],
+                      "label-md": ["14px", {"lineHeight": "1", "letterSpacing": "0.02em", "fontWeight": "600"}],
+                      "label-sm": ["12px", {"lineHeight": "1", "fontWeight": "500"}]
+              }
+            }
+          }
+        }
+    </script>
+<style>
+        .stagger-1 { animation: slideUpFade 0.6s ease-out 0.1s both; }
+        .stagger-2 { animation: slideUpFade 0.6s ease-out 0.2s both; }
+        .stagger-3 { animation: slideUpFade 0.6s ease-out 0.3s both; }
+        .stagger-4 { animation: slideUpFade 0.6s ease-out 0.4s both; }
+
+        @keyframes slideUpFade {
+            0% { opacity: 0; transform: translateY(20px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        .code-block-bg {
+            background-color: rgba(29, 29, 27, 0.03);
+            border: 1px solid #E5E4E2;
+        }
+        
+        .glass-card {
+            background: rgba(249, 248, 246, 0.8);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid #E5E4E2;
+        }
+    </style>
+</head>
+<body class="bg-canvas text-on-background font-body-md min-h-screen flex flex-col selection:bg-lavender-subtle selection:text-carbon">
+<!-- Top Navigation -->
+<nav class="bg-canvas font-body-md docked full-width top-0 border-b border-surface-container-high flex justify-between items-center w-full px-margin-desktop py-stack-md max-w-container-max mx-auto z-50 sticky">
+<div class="flex items-center gap-stack-md">
+<img alt="MarcStar Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCbMWqnHlK68LXCQ6MmeKjievLwfWIx0ZWJl9l3All0EcbjUlj101ew1fjskTDTWToUqkuCB_CXKjTN0dW8N2sbZ5bns20jEr6rsjBqsitWQxveUz_S8cVNS085wTddCylCpfzuIL0IhkwvPYxXBUdZgT11ad-7CE9I6FDYzdtxgYdyCSJ3bICpMZ6-tgbGIiivwZFNMF7oj298GPYpfs0eRCbL-PbM0K9PtbCNwOtvKgpVNXVezwTxsVAY7LlnUwQr603pzqMMupCN"/>
+<span class="font-headline-md text-headline-md text-primary">Zenith</span>
+</div>
+<div class="hidden md:flex items-center gap-stack-lg">
+<a class="text-on-surface-variant hover:text-primary transition-colors py-1" href="#">Features</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors py-1" href="#">Security</a>
+<a class="text-primary font-semibold border-b-2 border-primary pb-1" href="#">Community</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors py-1" href="#">Changelog</a>
+</div>
+<div class="flex items-center gap-stack-md">
+<button class="hidden md:block font-label-md text-label-md text-carbon hover:bg-surface-container transition-all px-4 py-2 rounded-lg">GitHub</button>
+<button class="bg-carbon text-canvas font-label-md text-label-md px-5 py-2.5 rounded-lg hover:bg-primary transition-colors scale-95 active:scale-90">Download</button>
+</div>
+</nav>
+<!-- Main Content -->
+<main class="flex-grow w-full max-w-container-max mx-auto px-margin-desktop py-section-gap flex flex-col md:flex-row gap-section-gap relative">
+<!-- Sidebar Navigation (Sticky) -->
+<aside class="w-full md:w-64 flex-shrink-0 stagger-1">
+<div class="sticky top-[100px] flex flex-col gap-stack-lg">
+<div>
+<h3 class="font-label-sm text-label-sm text-outline uppercase tracking-wider mb-stack-sm">内容导航</h3>
+<ul class="flex flex-col gap-unit">
+<li><a class="block py-2 text-primary font-medium hover:bg-surface-container-low rounded px-2 transition-colors -ml-2" href="#architecture">架构概览 <span class="text-outline text-xs block font-normal">Architecture Overview</span></a></li>
+<li><a class="block py-2 text-on-surface-variant hover:text-primary hover:bg-surface-container-low rounded px-2 transition-colors -ml-2" href="#contributing">贡献指南 <span class="text-outline text-xs block font-normal">Contributing Guide</span></a></li>
+<li><a class="block py-2 text-on-surface-variant hover:text-primary hover:bg-surface-container-low rounded px-2 transition-colors -ml-2" href="#license">开源许可 <span class="text-outline text-xs block font-normal">License</span></a></li>
+</ul>
+</div>
+<div class="p-stack-md glass-card rounded-xl">
+<div class="flex items-center gap-2 mb-2">
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">info</span>
+<h4 class="font-label-md text-label-md text-carbon">需要帮助？</h4>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-3">加入我们的 Discord 社区参与讨论。</p>
+<button class="w-full bg-surface-container hover:bg-surface-container-high text-carbon font-label-md text-label-md py-2 rounded-lg transition-colors border border-surface-container-high">加入 Discord</button>
+</div>
+</div>
+</aside>
+<!-- Document Content -->
+<div class="flex-grow max-w-3xl">
+<!-- Header -->
+<header class="mb-section-gap stagger-1">
+<h1 class="font-headline-xl text-headline-xl text-carbon mb-stack-sm">MarcStar 开发者中心</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant">探索核心架构，参与开源贡献，了解许可协议。 <br/><span class="text-sm">Explore core architecture, contribute to open source, and understand licensing.</span></p>
+</header>
+<!-- Section 1: Architecture -->
+<section class="mb-section-gap scroll-mt-[100px] stagger-2" id="architecture">
+<div class="flex items-center gap-3 mb-stack-lg">
+<div class="w-10 h-10 rounded-full bg-lavender-subtle flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">architecture</span>
+</div>
+<div>
+<h2 class="font-headline-lg text-headline-lg text-carbon">架构概览</h2>
+<span class="font-label-sm text-label-sm text-outline uppercase tracking-wider">Architecture Overview</span>
+</div>
+</div>
+<p class="font-body-md text-body-md text-on-surface mb-stack-md leading-relaxed">
+                    MarcStar 采用混合架构，旨在提供原生 macOS 体验的同时保持高度的灵活性。我们结合了现代 Apple 框架与成熟的 Web 技术栈。
+                </p>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-stack-md mb-stack-lg">
+<div class="p-stack-md border border-surface-container-high rounded-xl bg-surface-container-low hover:border-outline transition-colors group">
+<div class="flex items-center gap-2 mb-2">
+<span class="material-symbols-outlined text-carbon">integration_instructions</span>
+<h3 class="font-label-md text-label-md text-carbon">SwiftUI 层</h3>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">作为主应用的入口和基础 UI 框架，负责窗口管理、菜单栏集成以及核心偏好设置界面的渲染。</p>
+</div>
+<div class="p-stack-md border border-surface-container-high rounded-xl bg-surface-container-low hover:border-outline transition-colors group">
+<div class="flex items-center gap-2 mb-2">
+<span class="material-symbols-outlined text-carbon">public</span>
+<h3 class="font-label-md text-label-md text-carbon">WebKit 核心</h3>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">利用高性能 WKWebView 承载复杂的 Markdown 渲染和动态 AI 交互面板，确保跨平台逻辑一致性。</p>
+</div>
+<div class="p-stack-md border border-surface-container-high rounded-xl bg-surface-container-low hover:border-outline transition-colors group md:col-span-2">
+<div class="flex items-center gap-2 mb-2">
+<span class="material-symbols-outlined text-carbon">memory</span>
+<h3 class="font-label-md text-label-md text-carbon">AppKit 深度集成</h3>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">在需要底层系统访问时（如全局快捷键注册、深色模式强制覆盖或特定的沙盒机制穿透），通过桥接模式调用原生 AppKit API，弥补 SwiftUI 的功能边界。</p>
+</div>
+</div>
+</section>
+<hr class="border-t border-surface-container-high mb-section-gap"/>
+<!-- Section 2: Contributing -->
+<section class="mb-section-gap scroll-mt-[100px] stagger-3" id="contributing">
+<div class="flex items-center gap-3 mb-stack-lg">
+<div class="w-10 h-10 rounded-full bg-surface-container-high flex items-center justify-center text-carbon">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">volunteer_activism</span>
+</div>
+<div>
+<h2 class="font-headline-lg text-headline-lg text-carbon">贡献指南</h2>
+<span class="font-label-sm text-label-sm text-outline uppercase tracking-wider">Contributing Guide</span>
+</div>
+</div>
+<div class="space-y-stack-lg">
+<div class="pl-4 border-l-2 border-surface-container-high">
+<h3 class="font-label-md text-label-md text-carbon mb-2 flex items-center gap-2">
+<span class="material-symbols-outlined text-sm">call_split</span> Fork &amp; Branch (分支管理)
+                        </h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-3">
+                            请在克隆项目后，从 <code>main</code> 分支创建您的特性分支。分支命名规范建议：<code>feat/your-feature</code> 或 <code>fix/issue-number</code>。
+                        </p>
+<div class="code-block-bg rounded-lg p-4 font-mono text-sm text-on-surface overflow-x-auto">
+<code>git checkout -b feat/add-new-shortcut</code>
+</div>
+</div>
+<div class="pl-4 border-l-2 border-surface-container-high">
+<h3 class="font-label-md text-label-md text-carbon mb-2 flex items-center gap-2">
+<span class="material-symbols-outlined text-sm">code</span> Code Style (代码风格)
+                        </h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-2">
+                            Swift 代码请遵循 SwiftLint 标准，Web 前端代码（Tailwind/TS）请运行我们提供的 Prettier 脚本进行格式化。
+                        </p>
+</div>
+<div class="pl-4 border-l-2 border-surface-container-high">
+<h3 class="font-label-md text-label-md text-carbon mb-2 flex items-center gap-2">
+<span class="material-symbols-outlined text-sm">merge</span> Pull Request (提交请求)
+                        </h3>
+<p class="font-body-md text-body-md text-on-surface-variant">
+                            提交 PR 之前，请确保所有本地测试通过。在 PR 描述中清晰说明您的改动目的，并关联相关的 Issue。我们将在一周内进行 Code Review。
+                        </p>
+</div>
+</div>
+</section>
+<hr class="border-t border-surface-container-high mb-section-gap"/>
+<!-- Section 3: License -->
+<section class="mb-section-gap scroll-mt-[100px] stagger-4" id="license">
+<div class="flex items-center gap-3 mb-stack-lg">
+<div class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-carbon">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">gavel</span>
+</div>
+<div>
+<h2 class="font-headline-lg text-headline-lg text-carbon">开源许可</h2>
+<span class="font-label-sm text-label-sm text-outline uppercase tracking-wider">License</span>
+</div>
+</div>
+<div class="code-block-bg rounded-xl p-stack-md md:p-stack-lg border border-surface-container-high relative group">
+<div class="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="text-outline hover:text-carbon p-1" title="Copy License">
+<span class="material-symbols-outlined text-sm">content_copy</span>
+</button>
+</div>
+<pre class="font-mono text-sm text-on-surface-variant whitespace-pre-wrap leading-relaxed">MIT License
+
+Copyright (c) 2024 MarcStar Contributors
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+                    </pre>
+</div>
+</section>
+</div>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-low font-body-sm text-body-sm full-width py-section-gap border-t border-surface-container-high">
+<div class="flex flex-col md:flex-row justify-between items-start w-full px-margin-desktop max-w-container-max mx-auto gap-stack-lg">
+<div class="flex flex-col gap-2">
+<span class="font-headline-md text-headline-md text-primary">Zenith</span>
+<p class="text-on-surface">© 2024 Zenith Browser. Built for the modern mind.</p>
+</div>
+<div class="flex flex-wrap gap-stack-md md:gap-stack-lg opacity-80 hover:opacity-100 transition-opacity">
+<a class="text-primary underline hover:text-primary transition-all" href="#">Documentation</a>
+<a class="text-on-surface-variant hover:text-primary underline transition-all" href="#">Privacy Policy</a>
+<a class="text-on-surface-variant hover:text-primary underline transition-all" href="#">Terms of Service</a>
+<a class="text-on-surface-variant hover:text-primary underline transition-all" href="#">Security</a>
+<a class="text-on-surface-variant hover:text-primary underline transition-all" href="#">System Status</a>
+<a class="text-on-surface-variant hover:text-primary underline transition-all" href="#">Contact Us</a>
+</div>
+</div>
+</footer>
+<script>
+        // Simple active state observer for sidebar navigation
+        document.addEventListener('DOMContentLoaded', () => {
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('aside nav a, aside ul a');
+
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.5
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const id = entry.target.getAttribute('id');
+                        navLinks.forEach(link => {
+                            link.classList.remove('text-primary', 'font-medium', 'bg-surface-container-low');
+                            link.classList.add('text-on-surface-variant');
+                            if (link.getAttribute('href') === `#${id}`) {
+                                link.classList.remove('text-on-surface-variant');
+                                link.classList.add('text-primary', 'font-medium', 'bg-surface-container-low');
+                            }
+                        });
+                    }
+                });
+            }, observerOptions);
+
+            sections.forEach(section => observer.observe(section));
+        });
+    </script>
+</body></html>

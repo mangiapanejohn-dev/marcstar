@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Zenith Browser - Features</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "secondary": "#635979",
+                        "on-background": "#1a1c1b",
+                        "background": "#faf9f7",
+                        "on-surface": "#1a1c1b",
+                        "inverse-primary": "#c8c6c3",
+                        "surface-container": "#efeeec",
+                        "carbon": "#1D1D1B",
+                        "surface-container-low": "#f4f3f1",
+                        "canvas": "#F9F8F6",
+                        "on-primary": "#ffffff",
+                        "inverse-on-surface": "#f1f1ef",
+                        "surface": "#F1F0EE",
+                        "surface-dim": "#dadad8",
+                        "on-primary-fixed-variant": "#474744",
+                        "outline": "#777771",
+                        "surface-container-high": "#e9e8e6",
+                        "on-tertiary-container": "#4e3d00",
+                        "on-tertiary": "#ffffff",
+                        "on-secondary": "#ffffff",
+                        "primary-container": "#1d1d1b",
+                        "surface-container-lowest": "#ffffff",
+                        "on-secondary-fixed-variant": "#4b4260",
+                        "surface-bright": "#faf9f7",
+                        "inverse-surface": "#2f3130",
+                        "primary-fixed": "#e5e2de",
+                        "error-container": "#ffdad6",
+                        "secondary-container": "#e4d7fd",
+                        "error": "#ba1a1a",
+                        "tertiary": "#735c00",
+                        "tertiary-fixed": "#ffe088",
+                        "on-primary-container": "#868582",
+                        "surface-tint": "#5f5e5c",
+                        "surface-variant": "#e3e2e0",
+                        "on-tertiary-fixed-variant": "#574500",
+                        "secondary-fixed": "#eaddff",
+                        "primary-fixed-dim": "#c8c6c3",
+                        "primary": "#020302",
+                        "on-secondary-fixed": "#1f1732",
+                        "on-surface-variant": "#464741",
+                        "on-tertiary-fixed": "#241a00",
+                        "on-error-container": "#93000a",
+                        "on-error": "#ffffff",
+                        "on-secondary-container": "#665c7c",
+                        "tertiary-fixed-dim": "#e9c349",
+                        "tertiary-container": "#cba72f",
+                        "surface-container-highest": "#e3e2e0",
+                        "gold-muted": "#E5D1A0",
+                        "lavender-subtle": "#EBE4F5",
+                        "on-primary-fixed": "#1c1c1a",
+                        "outline-variant": "#c7c7bf",
+                        "secondary-fixed-dim": "#cdc1e5"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "gutter": "24px",
+                        "stack-sm": "8px",
+                        "stack-md": "16px",
+                        "margin-mobile": "20px",
+                        "container-max": "1200px",
+                        "unit": "4px",
+                        "stack-lg": "32px",
+                        "section-gap": "80px",
+                        "margin-desktop": "48px"
+                    },
+                    "fontFamily": {
+                        "headline-md": ["Newsreader"],
+                        "headline-lg": ["Newsreader"],
+                        "body-lg": ["Inter"],
+                        "body-md": ["Inter"],
+                        "body-sm": ["Inter"],
+                        "headline-xl": ["Newsreader"],
+                        "headline-lg-mobile": ["Newsreader"],
+                        "label-md": ["Inter"],
+                        "label-sm": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-md": ["24px", { "lineHeight": "1.3", "fontWeight": "500" }],
+                        "headline-lg": ["32px", { "lineHeight": "1.2", "fontWeight": "500" }],
+                        "body-lg": ["18px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "body-md": ["16px", { "lineHeight": "1.5", "fontWeight": "400" }],
+                        "body-sm": ["14px", { "lineHeight": "1.4", "fontWeight": "400" }],
+                        "headline-xl": ["48px", { "lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "500" }],
+                        "headline-lg-mobile": ["28px", { "lineHeight": "1.2", "fontWeight": "500" }],
+                        "label-md": ["14px", { "lineHeight": "1", "letterSpacing": "0.02em", "fontWeight": "600" }],
+                        "label-sm": ["12px", { "lineHeight": "1", "fontWeight": "500" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .stagger-enter {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: staggerFadeIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+        @keyframes staggerFadeIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .delay-100 { animation-delay: 100ms; }
+        .delay-200 { animation-delay: 200ms; }
+        .delay-300 { animation-delay: 300ms; }
+        .delay-400 { animation-delay: 400ms; }
+        
+        .keycap {
+            background-color: theme('colors.surface');
+            border: 1px solid theme('colors.outline-variant');
+            box-shadow: 0 2px 0 theme('colors.outline-variant');
+            padding: 4px 8px;
+            border-radius: 6px;
+            font-family: 'Inter', sans-serif;
+            font-size: 12px;
+            font-weight: 500;
+            color: theme('colors.carbon');
+            display: inline-block;
+            transform: translateY(0);
+            transition: all 0.1s;
+        }
+        .keycap:active {
+            transform: translateY(2px);
+            box-shadow: 0 0 0 theme('colors.outline-variant');
+        }
+    </style>
+</head>
+<body class="bg-canvas text-on-surface font-body-md antialiased min-h-screen flex flex-col">
+<!-- TopNavBar -->
+<nav class="bg-canvas border-b border-surface-container-high docked full-width top-0 z-50">
+<div class="flex justify-between items-center w-full px-margin-desktop py-stack-md max-w-container-max mx-auto">
+<div class="flex items-center gap-stack-md">
+<img alt="Zenith Logo" class="h-8 w-8 object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCbMWqnHlK68LXCQ6MmeKjievLwfWIx0ZWJl9l3All0EcbjUlj101ew1fjskTDTWToUqkuCB_CXKjTN0dW8N2sbZ5bns20jEr6rsjBqsitWQxveUz_S8cVNS085wTddCylCpfzuIL0IhkwvPYxXBUdZgT11ad-7CE9I6FDYzdtxgYdyCSJ3bICpMZ6-tgbGIiivwZFNMF7oj298GPYpfs0eRCbL-PbM0K9PtbCNwOtvKgpVNXVezwTxsVAY7LlnUwQr603pzqMMupCN"/>
+<span class="font-headline-md text-headline-md text-primary">Zenith</span>
+</div>
+<div class="hidden md:flex items-center gap-stack-lg">
+<a class="text-primary font-semibold border-b-2 border-primary pb-1" href="#">Features</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors" href="#">Security</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors" href="#">Community</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors" href="#">Changelog</a>
+</div>
+<div class="flex items-center gap-stack-md">
+<button class="font-label-md text-label-md text-carbon hover:bg-surface-container px-4 py-2 rounded-lg transition-all scale-95 active:scale-90 border border-transparent hover:border-outline-variant">GitHub</button>
+<button class="font-label-md text-label-md bg-carbon text-canvas px-4 py-2 rounded-lg transition-all scale-95 active:scale-90 hover:opacity-90">Download</button>
+</div>
+</div>
+</nav>
+<!-- Main Canvas -->
+<main class="flex-grow w-full max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-section-gap flex flex-col gap-section-gap">
+<!-- Header -->
+<header class="text-center stagger-enter">
+<h1 class="font-headline-xl text-headline-xl text-carbon mb-stack-md">Ultimate Features</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto">Discover the meticulous engineering and deliberate design choices that make Zenith the browser for the modern mind.</p>
+</header>
+<!-- Section 1: Engineered for Focus -->
+<section class="stagger-enter delay-100 flex flex-col gap-stack-lg">
+<h2 class="font-headline-lg text-headline-lg text-carbon border-b border-surface-container-high pb-stack-sm">Engineered for Focus</h2>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-gutter">
+<!-- Bento Card 1 -->
+<div class="bg-surface rounded-xl p-stack-lg border border-surface-container-high relative overflow-hidden group">
+<div class="absolute inset-0 bg-gradient-to-br from-white/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+<span class="material-symbols-outlined text-3xl text-secondary mb-stack-md block">water_drop</span>
+<h3 class="font-headline-md text-headline-md text-carbon mb-stack-sm">Liquid Glass Rendering</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Our custom rendering pipeline delivers buttery smooth scrolling and sub-pixel text anti-aliasing, reducing eye strain during deep reading sessions.</p>
+</div>
+<!-- Bento Card 2 -->
+<div class="bg-surface rounded-xl p-stack-lg border border-surface-container-high relative overflow-hidden group">
+<div class="absolute inset-0 bg-gradient-to-br from-white/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+<span class="material-symbols-outlined text-3xl text-secondary mb-stack-md block">crop_free</span>
+<h3 class="font-headline-md text-headline-md text-carbon mb-stack-sm">Single Page Focus</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Tabs are inherently distracting. Zenith embraces a single-page philosophy with a powerful, fleeting 'Command Palette' for navigation, forcing intentional reading.</p>
+</div>
+</div>
+</section>
+<!-- Section 2: Keyboard Master -->
+<section class="stagger-enter delay-200 flex flex-col gap-stack-lg">
+<h2 class="font-headline-lg text-headline-lg text-carbon border-b border-surface-container-high pb-stack-sm">Keyboard Master</h2>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-3xl">Keep your hands on the home row. Every major action in Zenith is accessible via fluid, memorable keyboard shortcuts.</p>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-stack-md">
+<div class="flex items-center justify-between p-stack-md border border-surface-container-high rounded-lg bg-surface-bright">
+<span class="font-body-sm text-body-sm text-carbon">Copy URL</span>
+<div class="flex gap-1"><span class="keycap">Space</span> <span class="text-xs text-outline mx-1">×</span> <span class="font-label-sm">3</span></div>
+</div>
+<div class="flex items-center justify-between p-stack-md border border-surface-container-high rounded-lg bg-surface-bright">
+<span class="font-body-sm text-body-sm text-carbon">Refresh</span>
+<div class="flex gap-1"><span class="keycap">⌘</span> <span class="keycap">Space</span></div>
+</div>
+<div class="flex items-center justify-between p-stack-md border border-surface-container-high rounded-lg bg-surface-bright">
+<span class="font-body-sm text-body-sm text-carbon">Export PNG</span>
+<div class="flex gap-1"><span class="keycap">⌘</span> <span class="keycap">⌥</span> <span class="keycap">P</span></div>
+</div>
+<div class="flex items-center justify-between p-stack-md border border-surface-container-high rounded-lg bg-surface-bright">
+<span class="font-body-sm text-body-sm text-carbon">URL Input</span>
+<div class="flex gap-1"><span class="keycap">⌘</span> <span class="keycap">U</span></div>
+</div>
+</div>
+</section>
+<!-- Section 3: Tech Stack -->
+<section class="stagger-enter delay-300 flex flex-col gap-stack-lg">
+<h2 class="font-headline-lg text-headline-lg text-carbon border-b border-surface-container-high pb-stack-sm">Tech Stack</h2>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-3xl">Built natively for the platform to ensure absolute performance and integration.</p>
+<div class="flex flex-wrap gap-stack-sm">
+<span class="px-4 py-2 bg-lavender-subtle text-[#4b4260] rounded-full font-label-md text-label-md border border-[#cdc1e5]">SwiftUI</span>
+<span class="px-4 py-2 bg-lavender-subtle text-[#4b4260] rounded-full font-label-md text-label-md border border-[#cdc1e5]">WebKit</span>
+<span class="px-4 py-2 bg-lavender-subtle text-[#4b4260] rounded-full font-label-md text-label-md border border-[#cdc1e5]">AppKit</span>
+<span class="px-4 py-2 bg-lavender-subtle text-[#4b4260] rounded-full font-label-md text-label-md border border-[#cdc1e5]">CoreAnimation</span>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-low border-t border-surface-container-high full-width py-section-gap mt-auto">
+<div class="flex flex-col md:flex-row justify-between items-start w-full px-margin-desktop max-w-container-max mx-auto gap-stack-lg">
+<div class="flex flex-col gap-stack-md">
+<span class="font-headline-md text-headline-md text-primary">Zenith</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant max-w-xs">© 2024 Zenith Browser. Built for the modern mind.</p>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-3 gap-x-gutter gap-y-stack-md">
+<a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary hover:underline transition-all opacity-80 hover:opacity-100" href="#">Documentation</a>
+<a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary hover:underline transition-all opacity-80 hover:opacity-100" href="#">Privacy Policy</a>
+<a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary hover:underline transition-all opacity-80 hover:opacity-100" href="#">Terms of Service</a>
+<a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary hover:underline transition-all opacity-80 hover:opacity-100" href="#">Security</a>
+<a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary hover:underline transition-all opacity-80 hover:opacity-100" href="#">System Status</a>
+<a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary hover:underline transition-all opacity-80 hover:opacity-100" href="#">Contact Us</a>
+</div>
+</div>
+</footer>
+</body></html>
